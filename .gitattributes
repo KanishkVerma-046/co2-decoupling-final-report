@@ -1,2 +1,4 @@
 * text=auto eol=lf
 *.png binary
+# byte-exact copies of the earlier repos (their sha256 values are recorded in data/inputs/manifest.csv)
+data/inputs/** -text
