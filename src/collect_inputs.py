@@ -65,11 +65,11 @@ FILES = {
 # Figures reused in the report (copied to figures/reused/ by make_figures.py; listed here only so the manifest records
 # their provenance too).
 REUSED_FIGURES = {
-    "week1": ["figures/fig_profile_missing_heatmap.png", "figures/fig_cleaning_flowchart.png"],
-    "week2": ["figures/fig_effect_size_forest.png", "figures/fig_h2_boxplot_by_income.png",
-              "figures/fig_h5_paired_change.png"],
+    "week1": ["figures/fig_profile_missing_heatmap.png", "figures/fig_profile_distributions.png"],
+    "week2": ["figures/fig_h2_boxplot_by_income.png", "figures/fig_h6_decoupling_heatmap.png",
+              "figures/fig_h4_slopes_by_income.png"],
     "week3": ["figures/fig_label_split_timeline.png", "figures/fig_test_precision_recall.png",
-              "figures/fig_test_roc.png", "figures/fig_importance_coefficients.png"],
+              "figures/fig_importance_coefficients.png"],
 }
 
 

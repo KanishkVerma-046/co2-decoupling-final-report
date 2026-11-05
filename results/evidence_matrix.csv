@@ -1,0 +1,11 @@
+key,finding,rating_basis,week1,week2,week3,rating,note
+F1,Richer countries emit more CO2 per person,H1,part,pre,pre,High,Week 1: preliminary smoke test only. Week 3: income per person is the strongest model feature.
+F2,High-income countries emit far more per person than lower-income ones,H3,plan,pre,part,High,Week 1 planned the group comparison. Week 3 shows decoupling windows also differ by group.
+F3,Decoupling is far more common in high-income countries,H6,plan,pre,pre,High,Week 1 planned the decoupling quadrant plot. Week 3 subgroup rates (pre-specified) show the same ordering.
+F4,Emissions per person fell in most high-income countries,H5,plan,pre,part,Moderate,Week 3 high-income windows keep decoupling in the test years.
+F5,The income-emissions slope is flatter at high income,H4,plan,pre,none,Low,Week 1 planned stratified fits. No model-based check.
+F6,Industry share and fuel mix matter beyond income,S1,plan,part,part,Low,Week 2 test was exploratory; Week 3 importance is predictive and urbanisation disagrees.
+F7,The model ranks decoupling windows better than persistence,M1,none,none,pre,Moderate,"Pre-specified model comparison, one test period."
+F8,The model is not usable as a yes/no classifier,M2,none,none,pre,Moderate,"Pre-specified threshold rule, confirmed in cross-validation."
+F9,An income-group base rate does about as well as the model,M3,none,none,part,Low,Post hoc comparison on saved test predictions.
+F10,Forest and boosting scored higher than the chosen model on the test set,M4,none,none,part,Low,Post hoc comparison on saved test predictions; the pre-specified choice was not changed.
