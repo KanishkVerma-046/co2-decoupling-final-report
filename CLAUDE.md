@@ -40,7 +40,6 @@ reference/                  git-ignored read-only clones of Weeks 1-3
 - No placeholders ("TODO", "TBD", "author to enter", "lorem") in the report, figures or README.
 - Every reference is verified through the Crossref API (title, journal, year, volume/pages, DOI); unverifiable ones are dropped. Earlier project work is cited by repo URL and commit hash.
 - No effort or hours tables.
-- Do not push to GitHub. Commit locally.
 - "Decoupling" always means absolute decoupling: CO2 per person falls while GDP per person rises.
 - Keep commands and paths cross-platform (pathlib; no bash-only scripts). Windows 11, Python 3.13.
 
