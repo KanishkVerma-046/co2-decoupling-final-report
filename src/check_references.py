@@ -48,7 +48,7 @@ CANDIDATES = [
 
 def norm(s: str) -> str:
     s = re.sub(r"<[^>]+>", "", s)  # Crossref titles can carry markup such as <sub>2</sub>
-    return re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
+    return re.sub(r"[^a-z0-9]+", "", s.lower())
 
 
 def first(x):

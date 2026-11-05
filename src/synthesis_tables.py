@@ -70,6 +70,20 @@ def decoupling_over_time() -> pd.DataFrame:
     return out
 
 
+def over_time_summary(d: pd.DataFrame) -> pd.DataFrame:
+    """Average share decoupling across the 3-year windows, for all windows and for windows starting 2010 or later,
+    and the number of windows in which each income group has the highest share."""
+    rows = []
+    groups = d[d.income_group != "All countries"]
+    top = groups.loc[groups.groupby("window_start_year")["share_decoupled"].idxmax()]["income_group"].value_counts()
+    for g in INCOME_ORDER + ["All countries"]:
+        s = d[d.income_group == g]
+        rows.append({"income_group": g, "n_windows": len(s), "mean_share_all_windows": s["share_decoupled"].mean(),
+                     "mean_share_from_2010": s[s.window_start_year >= 2010]["share_decoupled"].mean(),
+                     "windows_with_highest_share": int(top.get(g, 0))})
+    return pd.DataFrame(rows)
+
+
 def precision_at_top(y: np.ndarray, s: np.ndarray, frac: float) -> float:
     """Precision among the top ceil(frac * n) scores. Rows tied at the cut-off share the remaining slots in proportion
     (the expected precision under random tie-breaking), so the result does not depend on row order."""
@@ -128,7 +142,7 @@ def confidence_ratings() -> pd.DataFrame:
     rows = []
 
     corroboration = {  # judgement inputs, each tied to a named result in another week (see the 'corroborated_by' text)
-        "H1": (True, "Week 1 preliminary smoke test (rank correlation on 197 countries); Week 3 income per person is the strongest model feature"),
+        "H1": (True, "Week 1 preliminary smoke test; Week 3 income per person is the strongest model feature"),
         "H2": (True, "Week 3 decoupling windows differ sharply by income group"),
         "H3": (True, "Week 3 decoupling windows differ sharply by income group"),
         "H4": (False, "none: no other week tests slopes"),
@@ -215,7 +229,7 @@ def confidence_ratings() -> pd.DataFrame:
     rows.append({"finding_id": "M2", "finding": "At the frozen threshold the selected model is not useful as a yes/no classifier",
                  "kind": "model evaluation (pre-specified)", "pre_specified": True, "robustness_variants": n_variants,
                  "robustness_passed": n_variants, "robustness_failed": 0, "holm_p": float("nan"), "underpowered_flag": False,
-                 "corroborated": True, "corroborated_by": "the same pattern appears in out-of-fold cross-validation (recall about 93%, precision about 30%)",
+                 "corroborated": True, "corroborated_by": "the same pattern appears in out-of-fold cross-validation (Week 3, Section 8.3)",
                  "rating": "Moderate",
                  "why": "no usefulness threshold was pre-specified, so the judgement rests on MCC and precision against the base rate; "
                         f"test MCC {mt.loc['lr', 'mcc']:.3f}, precision {mt.loc['lr', 'precision']:.3f}"})
@@ -228,7 +242,7 @@ def confidence_ratings() -> pd.DataFrame:
                  "robustness_failed": 0, "holm_p": float("nan"), "underpowered_flag": False, "corroborated": True,
                  "corroborated_by": "cross-validation also ranked the forest first (but within one standard error)",
                  "rating": "Low", "why": "post hoc; the pre-specified choice was not changed"})
-    rows.append({"finding_id": "M5", "finding": "Precision among the top 20% highest-scored windows exceeds the base rate",
+    rows.append({"finding_id": "M5", "finding": "Precision among the highest-scored windows exceeds the base rate",
                  "kind": "new post hoc metric", "pre_specified": False, "robustness_variants": 0, "robustness_passed": 0,
                  "robustness_failed": 0, "holm_p": float("nan"), "underpowered_flag": False, "corroborated": False,
                  "corroborated_by": "none", "rating": "Low", "why": "new in Week 4, computed after the test set was seen; plain-language aid only"})
@@ -298,6 +312,7 @@ def main() -> int:
     d1.to_csv(RESULTS / "decoupling_by_income_1990_2022.csv", index=False, lineterminator="\n")
     d2 = decoupling_over_time()
     d2.to_csv(RESULTS / "decoupling_over_time.csv", index=False, lineterminator="\n")
+    over_time_summary(d2).to_csv(RESULTS / "decoupling_over_time_summary.csv", index=False, lineterminator="\n")
     d3 = model_skill_top20()
     d3.to_csv(RESULTS / "model_skill_top20.csv", index=False, lineterminator="\n")
     d4 = confidence_ratings()

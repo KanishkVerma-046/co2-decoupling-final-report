@@ -31,6 +31,7 @@ BLUE, VERM, GREEN, ORANGE, GREY = "#0072B2", "#D55E00", "#009E73", "#E69F00", "#
 # ordered income groups: one hue, light -> dark (lightness stays inside the validated band)
 INC_COL = {"Low income": "#8DB8E0", "Lower middle income": "#5E9BD1", "Upper middle income": "#2F78B7", "High income": "#0B4F8A"}
 INC_SHORT = {"Low income": "Low", "Lower middle income": "Lower-middle", "Upper middle income": "Upper-middle", "High income": "High"}
+INC_MARK = {"Low income": "o", "Lower middle income": "s", "Upper middle income": "^", "High income": "D"}
 CONF_COL = {"High": (BLUE, "white"), "Moderate": (ORANGE, INK), "Low": ("#CBD2D9", INK)}
 
 plt.rcParams.update({
@@ -174,7 +175,7 @@ def fig_income_scatter() -> None:
     fig, ax = plt.subplots(figsize=(W, 4.7))
     for g in INCOME_ORDER:
         s = d[d.income_group == g]
-        ax.scatter(s.gdp_pc, s.co2_pc, s=26 + 0.0 * s.population, color=INC_COL[g], edgecolor="white", linewidth=0.5, alpha=0.95, label=f"{INC_SHORT[g]} income", zorder=3)
+        ax.scatter(s.gdp_pc, s.co2_pc, s=30, marker=INC_MARK[g], color=INC_COL[g], edgecolor="white", linewidth=0.5, alpha=0.95, label=f"{INC_SHORT[g]} income", zorder=3)
     xs = np.linspace(x.min(), x.max(), 50)
     ax.plot(10 ** xs, 10 ** (icpt + slope * xs), color=VERM, lw=2, zorder=2, label="Trend line (fitted to the logged values)")
     ax.set_xscale("log")
@@ -247,7 +248,7 @@ def fig_decoupling_over_time() -> None:
     ends = {}
     for g in INCOME_ORDER:
         s = d[d.income_group == g].sort_values("window_start_year")
-        ax.plot(s.window_start_year, 100 * s.share_decoupled, color=INC_COL[g], lw=2.2, marker="o", ms=3.6, zorder=3)
+        ax.plot(s.window_start_year, 100 * s.share_decoupled, color=INC_COL[g], lw=2.2, marker=INC_MARK[g], ms=4.6, zorder=3)
         ends[g] = 100 * s.share_decoupled.iloc[-1]
     s = d[d.income_group == "All countries"].sort_values("window_start_year")
     ax.plot(s.window_start_year, 100 * s.share_decoupled, color=VERM, lw=1.8, ls=(0, (4, 2)), zorder=3)
@@ -272,9 +273,9 @@ def fig_decoupling_over_time() -> None:
     ax.set_yticks([0, 20, 40, 60])
     ax.set_yticklabels(["0%", "20%", "40%", "60%"])
     ax.grid(axis="y", color=GRID, lw=0.8, zorder=0)
-    ax.set_title("In any three-year window, about half of high-income countries decouple")
-    fig.text(0.01, 0.01, "Each point: share of countries whose CO2 per person fell and income per person rose over the next three years." + NL + "Grey band (gap): start years 2014-2016, not used by the model. Blue band: the test years 2017-2019. Current World Bank income groups.", fontsize=7.3, color=MUTED)
-    fig.subplots_adjust(left=0.12, right=0.985, top=0.92, bottom=0.22)
+    ax.set_title("High-income countries decouple most often, in most windows")
+    fig.text(0.01, 0.01, "Each point: share of countries whose CO2 per person fell and income per person rose over the next three years." + NL + "Grey band (gap): start years 2014-2016, not used by the model. Blue band: test years 2017-2019." + NL + "Income groups: current World Bank classification.", fontsize=7.3, color=MUTED)
+    fig.subplots_adjust(left=0.12, right=0.985, top=0.92, bottom=0.25)
     save(fig, "fig_decoupling_over_time.png")
 
 

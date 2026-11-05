@@ -256,6 +256,11 @@ DT = "results/decoupling_over_time.csv"
 for key, grp in [("high", "High income"), ("um", "Upper middle income"), ("lm", "Lower middle income"), ("low", "Low income"), ("all", "All countries")]:
     for yr in (1993, 2019):
         c(f"dot_{key}_{yr}", f"Share of {grp} countries decoupling over the 3-year window starting {yr}", "%", "{:.0f}", "new", DT, f"share_decoupled | window_start_year={yr} & income_group={grp}", "x100", N + "decoupling_over_time.csv", "descriptive")
+DS = "results/decoupling_over_time_summary.csv"
+c("dot_high_mean", "Average share of high-income countries decoupling per three-year window", "%", "{:.0f}", "new", DS, "mean_share_all_windows | income_group=High income", "x100", N + "decoupling_over_time_summary.csv", "descriptive")
+c("dot_high_recent", "Average share of high-income countries decoupling per window, windows starting 2010 or later", "%", "{:.0f}", "new", DS, "mean_share_from_2010 | income_group=High income", "x100", N + "decoupling_over_time_summary.csv", "descriptive")
+c("dot_high_top", "Windows in which high income has the highest decoupling share of the four groups", "windows", "{:.0f}", "new", DS, "windows_with_highest_share | income_group=High income", "", N + "decoupling_over_time_summary.csv", "descriptive")
+c("dot_all_mean", "Average share of all countries decoupling per three-year window", "%", "{:.0f}", "new", DS, "mean_share_all_windows | income_group=All countries", "x100", N + "decoupling_over_time_summary.csv", "descriptive")
 c("dot_n_windows", "Window start years shown in the over-time picture", "years", "{:.0f}", "new", DT, "#rows | income_group=All countries", "", N + "decoupling_over_time.csv", "descriptive")
 TK = "results/model_skill_top20.csv"
 c("top_frac", "Share of windows treated as 'top-scored' in the plain-language metric", "%", "{:.0f}", "new", TK, "top_fraction | model=lr", "x100", N + "model_skill_top20.csv", "post hoc")
@@ -299,6 +304,8 @@ c("w1_inc_lm", "Lower-middle-income countries in Week 1's joined set", "countrie
 c("w1_inc_low", "Low-income countries in Week 1's joined set", "countries", "{:.0f}", "w1", "report/report_content.md", r"regex: lower-middle- and (\d+) low-income", "", w1 + "5", "descriptive")
 c("n_recommendations", "Recommendations in this report", "recommendations", "{:.0f}", "new", "report/_build/tables/recommendations.csv", "#rows |", "", "Week 4, report section 8", "process")
 c("cfg_h", "Prediction horizon in years", "years", "{:.0f}", "w3", "results/frozen_config.json", "json: h", "", S3 + "2.3")
+c("cfg_pool_start", "First window start year of the training pool", "year", "{:.0f}", "w3", "docs/ml_plan.md", r"regex: \| Pool \(train \+ selection\) \| (\d{4})-", "", S3 + "6.1")
+c("w1_skew_log", "Skewness of CO2 per person in 2022 after taking logs", "skewness", "{:.2f}", "w1", "report/report_content.md", r"regex: Skew falls from [\d.]+ to (-?[\d.]+)", "", w1 + "5", "descriptive")
 c("cfg_pool_end", "Last window start year in the training pool", "year", "{:.0f}", "w3", "results/frozen_config.json", "json: pool_end", "", S3 + "6.1")
 c("cfg_test_first", "First window start year of the test set", "year", "{:.0f}", "w3", "results/frozen_config.json", "json: test_years.0", "", S3 + "6.1")
 c("cfg_test_last", "Last window start year of the test set", "year", "{:.0f}", "w3", "results/frozen_config.json", "json: test_years.2", "", S3 + "6.1")
