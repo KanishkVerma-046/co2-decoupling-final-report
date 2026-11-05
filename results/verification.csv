@@ -1,0 +1,100 @@
+id,week,quantity,original,recomputed,abs_diff,tolerance,result,original_source,method
+W2-H1-n,week2,Countries in the income-emissions correlation (n),198.0,198.0,0.0,0.0,pass,week2 results/hypothesis_results.csv H1 primary n,count of rows with GDP and CO2 per person > 0
+W2-H1-rho,week2,"Spearman rho, GDP per person vs CO2 per person (2022)",0.854765064772757,0.854765064772757,0.0,1e-09,pass,week2 results/hypothesis_results.csv H1 primary effect_size,Pearson correlation of average ranks
+W2-H1-ci-lo,week2,Lower end of the 95% interval for rho,0.8020539617098705,0.8010097074231294,0.001044254286741153,0.02,pass,week2 results/hypothesis_results.csv H1 primary ci_low,"percentile bootstrap, 10,000 resamples, own seed (interval ends differ by resampling noise)"
+W2-H1-ci-hi,week2,Upper end of the 95% interval for rho,0.8929042230749704,0.8929331567617455,2.8933686775034495e-05,0.02,pass,week2 results/hypothesis_results.csv H1 primary ci_high,"percentile bootstrap, 10,000 resamples, own seed"
+W2-H1-pearson,week2,Pearson r on log10 values,0.8518164212937182,0.8518164212937183,1.1102230246251565e-16,1e-09,pass,week2 results/hypothesis_results.csv H1 companion,np.corrcoef on log10
+W2-H2-median-low,week2,"Median CO2 per person, Low income (tonnes)",0.161,0.161,0.0,1e-09,pass,week2 results/h2_group_descriptives.csv median_co2_pc,groupby median
+W2-H2-n-low,week2,Countries in Low income (H2 sample),25.0,25.0,0.0,0.0,pass,week2 results/h2_group_descriptives.csv n,count
+W2-H2-median-lower,week2,"Median CO2 per person, Lower middle income (tonnes)",0.762,0.762,0.0,1e-09,pass,week2 results/h2_group_descriptives.csv median_co2_pc,groupby median
+W2-H2-n-lower,week2,Countries in Lower middle income (H2 sample),47.0,47.0,0.0,0.0,pass,week2 results/h2_group_descriptives.csv n,count
+W2-H2-median-upper,week2,"Median CO2 per person, Upper middle income (tonnes)",3.031,3.031,0.0,1e-09,pass,week2 results/h2_group_descriptives.csv median_co2_pc,groupby median
+W2-H2-n-upper,week2,Countries in Upper middle income (H2 sample),59.0,59.0,0.0,0.0,pass,week2 results/h2_group_descriptives.csv n,count
+W2-H2-median-high,week2,"Median CO2 per person, High income (tonnes)",6.8580000000000005,6.8580000000000005,0.0,1e-09,pass,week2 results/h2_group_descriptives.csv median_co2_pc,groupby median
+W2-H2-n-high,week2,Countries in High income (H2 sample),74.0,74.0,0.0,0.0,pass,week2 results/h2_group_descriptives.csv n,count
+W2-H3-diff,week2,"Mean difference in log10 CO2 per person, high vs lower-middle plus low",1.1493714166369537,1.1493714166369537,0.0,1e-09,pass,week2 results/hypothesis_results.csv H3 permutation row (statistic),difference of group means of log10
+W2-H3-ratio,week2,High-income to lower-income ratio of geometric-mean CO2 per person,14.1,14.104945636722915,0.004945636722915481,0.005,pass,week2 results/hypothesis_results.csv H3 primary comment (printed to 2 decimals),10 ** (difference of group means of log10)
+W2-H3-n,week2,Countries in the high vs lower-income comparison,146.0,146.0,0.0,0.0,pass,week2 results/hypothesis_results.csv H3 primary n,count
+W2-H6-n,week2,Countries in the decoupling comparison (n),184.0,184.0,0.0,0.0,pass,week2 results/hypothesis_results.csv H6 primary n,count of countries with CO2 and GDP in both years
+W2-H6-count-low,week2,"Decoupled countries, Low income",1.0,1.0,0.0,0.0,pass,week2 results/h6_contingency_and_residuals.csv observed,"rebuilt flag, count"
+W2-H6-total-low,week2,"Countries compared, Low income",20.0,20.0,0.0,0.0,pass,week2 results/h6_contingency_and_residuals.csv observed,count
+W2-H6-share-low,week2,"Share decoupled 1990-2022, Low income (%)",5.0,5.0,0.0,1e-09,pass,week2 results/h6_contingency_and_residuals.csv row_pct_decoupled,mean of rebuilt flag x 100
+W2-H6-count-lower,week2,"Decoupled countries, Lower middle income",4.0,4.0,0.0,0.0,pass,week2 results/h6_contingency_and_residuals.csv observed,"rebuilt flag, count"
+W2-H6-total-lower,week2,"Countries compared, Lower middle income",43.0,43.0,0.0,0.0,pass,week2 results/h6_contingency_and_residuals.csv observed,count
+W2-H6-share-lower,week2,"Share decoupled 1990-2022, Lower middle income (%)",9.30232558139535,9.30232558139535,0.0,1e-09,pass,week2 results/h6_contingency_and_residuals.csv row_pct_decoupled,mean of rebuilt flag x 100
+W2-H6-count-upper,week2,"Decoupled countries, Upper middle income",11.0,11.0,0.0,0.0,pass,week2 results/h6_contingency_and_residuals.csv observed,"rebuilt flag, count"
+W2-H6-total-upper,week2,"Countries compared, Upper middle income",54.0,54.0,0.0,0.0,pass,week2 results/h6_contingency_and_residuals.csv observed,count
+W2-H6-share-upper,week2,"Share decoupled 1990-2022, Upper middle income (%)",20.37037037037037,20.37037037037037,0.0,1e-09,pass,week2 results/h6_contingency_and_residuals.csv row_pct_decoupled,mean of rebuilt flag x 100
+W2-H6-count-high,week2,"Decoupled countries, High income",43.0,43.0,0.0,0.0,pass,week2 results/h6_contingency_and_residuals.csv observed,"rebuilt flag, count"
+W2-H6-total-high,week2,"Countries compared, High income",67.0,67.0,0.0,0.0,pass,week2 results/h6_contingency_and_residuals.csv observed,count
+W2-H6-share-high,week2,"Share decoupled 1990-2022, High income (%)",64.17910447761194,64.17910447761194,0.0,1e-09,pass,week2 results/h6_contingency_and_residuals.csv row_pct_decoupled,mean of rebuilt flag x 100
+W2-H5-n,week2,High-income countries with CO2 in both years (n),74.0,74.0,0.0,0.0,pass,week2 results/hypothesis_results.csv H5 primary n,count
+W2-H5-median,week2,"Median change in CO2 per person, high-income countries (%)",-15.9,-15.931748716486048,0.03174871648604771,0.05,pass,week2 results/hypothesis_results.csv H5 primary comment (printed to 1 decimal),median of 100 x (CO2_2022 / CO2_1990 - 1)
+W2-H5-fell,week2,High-income countries whose CO2 per person fell,50.0,50.0,0.0,0.0,pass,week2 results/hypothesis_results.csv H5 primary comment,count of negative changes
+W2-H4-slope-low,week2,"Log-log slope of CO2 on income, Low income",0.8744652747326817,0.8744652747326837,1.9984014443252818e-15,1e-09,pass,week2 results/h4_slopes_by_group.csv slope,np.polyfit degree 1 on log10 values
+W2-H4-slope-lower,week2,"Log-log slope of CO2 on income, Lower middle income",0.8406543334863472,0.840654333486348,7.771561172376096e-16,1e-09,pass,week2 results/h4_slopes_by_group.csv slope,np.polyfit degree 1 on log10 values
+W2-H4-slope-upper,week2,"Log-log slope of CO2 on income, Upper middle income",0.6936403035525884,0.6936403035525874,9.992007221626409e-16,1e-09,pass,week2 results/h4_slopes_by_group.csv slope,np.polyfit degree 1 on log10 values
+W2-H4-slope-high,week2,"Log-log slope of CO2 on income, High income",0.22031833201880688,0.22031833201880677,1.1102230246251565e-16,1e-09,pass,week2 results/h4_slopes_by_group.csv slope,np.polyfit degree 1 on log10 values
+W3-label-n-pool,week3,"Eligible decoupling windows, pool",4093.0,4093.0,0.0,0.0,pass,week3 results/label_base_rate_overall.csv n_rows,label rebuilt from panel
+W3-label-pos-pool,week3,"Decoupling windows, pool",1095.0,1095.0,0.0,0.0,pass,week3 results/label_base_rate_overall.csv n_positive,label rebuilt from panel
+W3-label-rate-pool,week3,"Base rate of decoupling windows, pool",0.2675299291473247,0.2675299291473247,0.0,1e-12,pass,week3 results/label_base_rate_overall.csv base_rate,label rebuilt from panel
+W3-label-n-test,week3,"Eligible decoupling windows, test",594.0,594.0,0.0,0.0,pass,week3 results/label_base_rate_overall.csv n_rows,label rebuilt from panel
+W3-label-pos-test,week3,"Decoupling windows, test",148.0,148.0,0.0,0.0,pass,week3 results/label_base_rate_overall.csv n_positive,label rebuilt from panel
+W3-label-rate-test,week3,"Base rate of decoupling windows, test",0.24915824915824916,0.24915824915824916,0.0,1e-12,pass,week3 results/label_base_rate_overall.csv base_rate,label rebuilt from panel
+W3-label-rate-all,week3,"Base rate, pool plus test",0.265201621506294,0.265201621506294,0.0,1e-12,pass,week3 results/label_base_rate_overall.csv,label rebuilt from panel
+W3-flow-final,week3,Eligible windows after all drops (t = 1993-2019),5283.0,5283.0,0.0,0.0,pass,week3 results/sample_flow.csv last row,label rebuilt from panel
+W3-label-by-year-mismatches,week3,Window start years (of 24) whose row count or positive count differs,0.0,0.0,0.0,0.0,pass,week3 results/label_base_rate_by_year.csv,per-year comparison
+W3-label-test-mismatches,week3,Test windows whose saved label differs from the rebuilt label,0.0,0.0,0.0,0.0,pass,week3 data/processed/test_predictions.csv y,row-by-row comparison with the rebuilt label
+W3-thr-lr,week3,Threshold used for lr in the test table equals the frozen threshold,0.12391763306856672,0.12391763306856672,0.0,0.0,pass,week3 results/frozen_config.json vs results/test_metrics.csv,comparison
+W3-thr-rf,week3,Threshold used for rf in the test table equals the frozen threshold,0.19743989174029056,0.19743989174029056,0.0,0.0,pass,week3 results/frozen_config.json vs results/test_metrics.csv,comparison
+W3-thr-hgb,week3,Threshold used for hgb in the test table equals the frozen threshold,0.1728523713549547,0.1728523713549547,0.0,0.0,pass,week3 results/frozen_config.json vs results/test_metrics.csv,comparison
+W3-lr-prauc,week3,"Test PR-AUC, Logistic regression",0.39011738465307655,0.3901173846530765,5.551115123125783e-17,1e-09,pass,week3 results/test_metrics.csv pr_auc,numpy step-wise average precision
+W3-lr-rocauc,week3,"Test ROC-AUC, Logistic regression",0.6884771542843291,0.6884771542843292,1.1102230246251565e-16,1e-09,pass,week3 results/test_metrics.csv roc_auc,rank statistic with average ranks
+W3-lr-f1,week3,"Test F1, Logistic regression",0.4049586776859504,0.40495867768595045,5.551115123125783e-17,1e-09,pass,week3 results/test_metrics.csv f1,numpy from the confusion counts at the frozen threshold
+W3-lr-mcc,week3,"Test MCC, Logistic regression",0.07180115293411735,0.07180115293411735,0.0,1e-09,pass,week3 results/test_metrics.csv mcc,numpy from the confusion counts at the frozen threshold
+W3-lr-precision,week3,"Test precision, Logistic regression",0.25432525951557095,0.25432525951557095,0.0,1e-09,pass,week3 results/test_metrics.csv precision,numpy from the confusion counts at the frozen threshold
+W3-lr-recall,week3,"Test recall, Logistic regression",0.9932432432432432,0.9932432432432432,0.0,1e-09,pass,week3 results/test_metrics.csv recall,numpy from the confusion counts at the frozen threshold
+W3-lr-tp,week3,"Test confusion count TP, Logistic regression",147.0,147.0,0.0,0.0,pass,week3 results/test_metrics.csv tp,counts at the frozen threshold
+W3-lr-fp,week3,"Test confusion count FP, Logistic regression",431.0,431.0,0.0,0.0,pass,week3 results/test_metrics.csv fp,counts at the frozen threshold
+W3-lr-tn,week3,"Test confusion count TN, Logistic regression",15.0,15.0,0.0,0.0,pass,week3 results/test_metrics.csv tn,counts at the frozen threshold
+W3-lr-fn,week3,"Test confusion count FN, Logistic regression",1.0,1.0,0.0,0.0,pass,week3 results/test_metrics.csv fn,counts at the frozen threshold
+W3-rf-prauc,week3,"Test PR-AUC, Random forest",0.4709684841445344,0.47096848414453446,5.551115123125783e-17,1e-09,pass,week3 results/test_metrics.csv pr_auc,numpy step-wise average precision
+W3-rf-rocauc,week3,"Test ROC-AUC, Random forest",0.7002636044115865,0.7002636044115865,0.0,1e-09,pass,week3 results/test_metrics.csv roc_auc,rank statistic with average ranks
+W3-rf-f1,week3,"Test F1, Random forest",0.43630573248407645,0.4363057324840764,5.551115123125783e-17,1e-09,pass,week3 results/test_metrics.csv f1,numpy from the confusion counts at the frozen threshold
+W3-rf-mcc,week3,"Test MCC, Random forest",0.1720145550639184,0.1720145550639184,0.0,1e-09,pass,week3 results/test_metrics.csv mcc,numpy from the confusion counts at the frozen threshold
+W3-rf-precision,week3,"Test precision, Random forest",0.28541666666666665,0.28541666666666665,0.0,1e-09,pass,week3 results/test_metrics.csv precision,numpy from the confusion counts at the frozen threshold
+W3-rf-recall,week3,"Test recall, Random forest",0.9256756756756757,0.9256756756756757,0.0,1e-09,pass,week3 results/test_metrics.csv recall,numpy from the confusion counts at the frozen threshold
+W3-rf-tp,week3,"Test confusion count TP, Random forest",137.0,137.0,0.0,0.0,pass,week3 results/test_metrics.csv tp,counts at the frozen threshold
+W3-rf-fp,week3,"Test confusion count FP, Random forest",343.0,343.0,0.0,0.0,pass,week3 results/test_metrics.csv fp,counts at the frozen threshold
+W3-rf-tn,week3,"Test confusion count TN, Random forest",103.0,103.0,0.0,0.0,pass,week3 results/test_metrics.csv tn,counts at the frozen threshold
+W3-rf-fn,week3,"Test confusion count FN, Random forest",11.0,11.0,0.0,0.0,pass,week3 results/test_metrics.csv fn,counts at the frozen threshold
+W3-hgb-prauc,week3,"Test PR-AUC, Gradient boosting",0.4667316528059549,0.46673165280595497,5.551115123125783e-17,1e-09,pass,week3 results/test_metrics.csv pr_auc,numpy step-wise average precision
+W3-hgb-rocauc,week3,"Test ROC-AUC, Gradient boosting",0.6962034904860016,0.6962034904860017,1.1102230246251565e-16,1e-09,pass,week3 results/test_metrics.csv roc_auc,rank statistic with average ranks
+W3-hgb-f1,week3,"Test F1, Gradient boosting",0.4512987012987013,0.4512987012987013,0.0,1e-09,pass,week3 results/test_metrics.csv f1,numpy from the confusion counts at the frozen threshold
+W3-hgb-mcc,week3,"Test MCC, Gradient boosting",0.21321141742328584,0.21321141742328584,0.0,1e-09,pass,week3 results/test_metrics.csv mcc,numpy from the confusion counts at the frozen threshold
+W3-hgb-precision,week3,"Test precision, Gradient boosting",0.297008547008547,0.297008547008547,0.0,1e-09,pass,week3 results/test_metrics.csv precision,numpy from the confusion counts at the frozen threshold
+W3-hgb-recall,week3,"Test recall, Gradient boosting",0.9391891891891891,0.9391891891891891,0.0,1e-09,pass,week3 results/test_metrics.csv recall,numpy from the confusion counts at the frozen threshold
+W3-hgb-tp,week3,"Test confusion count TP, Gradient boosting",139.0,139.0,0.0,0.0,pass,week3 results/test_metrics.csv tp,counts at the frozen threshold
+W3-hgb-fp,week3,"Test confusion count FP, Gradient boosting",329.0,329.0,0.0,0.0,pass,week3 results/test_metrics.csv fp,counts at the frozen threshold
+W3-hgb-tn,week3,"Test confusion count TN, Gradient boosting",117.0,117.0,0.0,0.0,pass,week3 results/test_metrics.csv tn,counts at the frozen threshold
+W3-hgb-fn,week3,"Test confusion count FN, Gradient boosting",9.0,9.0,0.0,0.0,pass,week3 results/test_metrics.csv fn,counts at the frozen threshold
+W3-persistence-prauc,week3,"Test PR-AUC, Persistence rule",0.28366474296706856,0.28366474296706856,0.0,1e-09,pass,week3 results/test_metrics.csv pr_auc,numpy step-wise average precision
+W3-persistence-rocauc,week3,"Test ROC-AUC, Persistence rule",0.5681432553629863,0.5681432553629863,0.0,1e-09,pass,week3 results/test_metrics.csv roc_auc,rank statistic with average ranks
+W3-persistence-f1,week3,"Test F1, Persistence rule",0.3625,0.3625,0.0,1e-09,pass,week3 results/test_metrics.csv f1,numpy from the confusion counts at the frozen threshold
+W3-persistence-mcc,week3,"Test MCC, Persistence rule",0.12996628669980495,0.12996628669980495,0.0,1e-09,pass,week3 results/test_metrics.csv mcc,numpy from the confusion counts at the frozen threshold
+W3-persistence-precision,week3,"Test precision, Persistence rule",0.3372093023255814,0.3372093023255814,0.0,1e-09,pass,week3 results/test_metrics.csv precision,numpy from the confusion counts at the frozen threshold
+W3-persistence-recall,week3,"Test recall, Persistence rule",0.3918918918918919,0.3918918918918919,0.0,1e-09,pass,week3 results/test_metrics.csv recall,numpy from the confusion counts at the frozen threshold
+W3-persistence-tp,week3,"Test confusion count TP, Persistence rule",58.0,58.0,0.0,0.0,pass,week3 results/test_metrics.csv tp,counts at the frozen threshold
+W3-persistence-fp,week3,"Test confusion count FP, Persistence rule",114.0,114.0,0.0,0.0,pass,week3 results/test_metrics.csv fp,counts at the frozen threshold
+W3-persistence-tn,week3,"Test confusion count TN, Persistence rule",332.0,332.0,0.0,0.0,pass,week3 results/test_metrics.csv tn,counts at the frozen threshold
+W3-persistence-fn,week3,"Test confusion count FN, Persistence rule",90.0,90.0,0.0,0.0,pass,week3 results/test_metrics.csv fn,counts at the frozen threshold
+W3-prior-prauc,week3,"Test PR-AUC, Prior (base rate)",0.24915824915824916,0.24915824915824916,0.0,1e-09,pass,week3 results/test_metrics.csv pr_auc,numpy step-wise average precision
+W3-prior-rocauc,week3,"Test ROC-AUC, Prior (base rate)",0.5,0.5,0.0,1e-09,pass,week3 results/test_metrics.csv roc_auc,rank statistic with average ranks
+W3-prior-f1,week3,"Test F1, Prior (base rate)",0.0,0.0,0.0,1e-09,pass,week3 results/test_metrics.csv f1,numpy from the confusion counts at the frozen threshold
+W3-prior-mcc,week3,"Test MCC, Prior (base rate)",0.0,0.0,0.0,1e-09,pass,week3 results/test_metrics.csv mcc,numpy from the confusion counts at the frozen threshold
+W3-prior-precision,week3,"Test precision, Prior (base rate)",0.0,0.0,0.0,1e-09,pass,week3 results/test_metrics.csv precision,numpy from the confusion counts at the frozen threshold
+W3-prior-recall,week3,"Test recall, Prior (base rate)",0.0,0.0,0.0,1e-09,pass,week3 results/test_metrics.csv recall,numpy from the confusion counts at the frozen threshold
+W3-prior-tp,week3,"Test confusion count TP, Prior (base rate)",0.0,0.0,0.0,0.0,pass,week3 results/test_metrics.csv tp,counts at the frozen threshold
+W3-prior-fp,week3,"Test confusion count FP, Prior (base rate)",0.0,0.0,0.0,0.0,pass,week3 results/test_metrics.csv fp,counts at the frozen threshold
+W3-prior-tn,week3,"Test confusion count TN, Prior (base rate)",446.0,446.0,0.0,0.0,pass,week3 results/test_metrics.csv tn,counts at the frozen threshold
+W3-prior-fn,week3,"Test confusion count FN, Prior (base rate)",148.0,148.0,0.0,0.0,pass,week3 results/test_metrics.csv fn,counts at the frozen threshold

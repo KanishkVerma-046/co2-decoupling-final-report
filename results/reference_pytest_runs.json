@@ -1,0 +1,5 @@
+{
+  "week1": {"summary": "no test suite in the repository", "passed": 0, "failed": 0},
+  "week2": {"summary": "24 passed, 1 failed on a fresh clone at the recorded commit (Python 3.13.3, packages from the repo's requirements.txt). The failing check is test_raw_files_match_manifest_checksums: the committed World Bank CSVs have LF line endings but the manifest hashes were taken from CRLF files written on Windows; the committed bytes equal the hashed bytes after converting LF to CRLF (byte counts then match the manifest). The OWID file matches its hash exactly. No data values are affected.", "passed": 24, "failed": 1},
+  "week3": {"summary": "31 passed on a clone made with core.autocrlf=false at the recorded commit; on a default Windows clone (CRLF working tree) 29 passed and 2 failed (raw-file hash and the LF-endings check), both line-ending effects of the clone, not of the code.", "passed": 31, "failed": 0}
+}
