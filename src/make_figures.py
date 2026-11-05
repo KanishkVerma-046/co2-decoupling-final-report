@@ -210,7 +210,7 @@ def fig_income_scatter() -> None:
 # =========================================================================================== 4 decoupling by group
 def fig_decoupling_by_group() -> None:
     d = pd.read_csv(RESULTS / "decoupling_by_income_1990_2022.csv").set_index("income_group")
-    fig, ax = plt.subplots(figsize=(W, 4.0))
+    fig, ax = plt.subplots(figsize=(W, 4.25))
     xs = np.arange(4)
     for i, g in enumerate(INCOME_ORDER):
         r = d.loc[g]
@@ -233,7 +233,7 @@ def fig_decoupling_by_group() -> None:
     ax.grid(axis="y", color=GRID, lw=0.8, zorder=0)
     ax.set_title("Decoupling between 1990 and 2022 is mostly a high-income story")
     fig.text(0.01, 0.01, "Whiskers: 95% intervals (Wilson). Counts are countries with data in both years." + NL + "Groups use the current World Bank classification.", fontsize=7.5, color=MUTED)
-    fig.subplots_adjust(left=0.13, right=0.98, top=0.92, bottom=0.2)
+    fig.subplots_adjust(left=0.13, right=0.98, top=0.92, bottom=0.235)
     save(fig, "fig_decoupling_by_group.png")
 
 

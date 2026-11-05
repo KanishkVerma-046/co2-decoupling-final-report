@@ -21,7 +21,7 @@ In Week 1 we planned the exploration and checked the data. In Week 2 we wrote do
 - **Richer countries emit more per person.** The rank correlation between income and CO2 per person is {h1_rho} (a perfect match would score one and no link zero). *High confidence.*
 - **The gap is large.** High-income countries emit about {h3_ratio} times as much CO2 per person as lower-middle and low-income countries combined. *High confidence.*
 - **Decoupling is mostly a high-income story.** Between 1990 and 2022, {dec_pct_high}% of high-income countries decoupled, against {dec_pct_low}% to {dec_pct_um}% in the other groups. Still, {dec_notdec_pct_high}% of high-income countries did not. *High confidence.*
-- **Most high-income countries cut emissions per person.** The median fall was {h5_median_abs}% and CO2 per person fell in {h5_fell} of {h5_n} countries, but the effect is moderate and the test could only just detect it. *Moderate confidence.*
+- **Most high-income countries cut emissions per person.** The median fall was {h5_median_abs}% and CO2 per person fell in {h5_fell} of {h5_n} countries, but the effect is moderate and the study was only just large enough to detect it. *Moderate confidence.*
 - **The model ranks better than a simple rule, but it is not a decision tool.** Its ranking score was {test_prauc2_lr} against {test_prauc2_persistence} for a rule that copies the recent past (a model with no skill scores about {test_prauc2_prior}, the share of true cases). At its fixed cut-off it flagged almost every window. *Moderate confidence.*
 
 ### 1.4 Five recommendations
