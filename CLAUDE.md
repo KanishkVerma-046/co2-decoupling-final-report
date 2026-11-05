@@ -41,7 +41,6 @@ reference/                  git-ignored read-only clones of Weeks 1-3
 - Every reference is verified through the Crossref API (title, journal, year, volume/pages, DOI); unverifiable ones are dropped. Earlier project work is cited by repo URL and commit hash.
 - No effort or hours tables.
 - Do not push to GitHub. Commit locally.
-- Commit messages end with `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>` and `Claude-Session: https://claude.ai/code/session_01WTy9wVmZLp1kQrc5j62DRw`.
 - "Decoupling" always means absolute decoupling: CO2 per person falls while GDP per person rises.
 - Keep commands and paths cross-platform (pathlib; no bash-only scripts). Windows 11, Python 3.13.
 
